@@ -107,10 +107,7 @@ class AutomaticProperties {
                 }
             }
         }
-        if let model = String(validatingUTF8: modelCode) {
-            return model
-        }
-        return ""
+        return modelCode
     }
 
     #if os(watchOS)
@@ -119,7 +116,7 @@ class AutomaticProperties {
         let watchSize40mm = Int(162)
         let watchSize42mm = Int(156)
         let watchSize44mm = Int(184)
-        
+
         let screenWidth = Int(WKInterfaceDevice.current().screenBounds.size.width)
         switch screenWidth {
         case watchSize38mm:
@@ -135,7 +132,7 @@ class AutomaticProperties {
         }
     }
     #endif
-    
+
     class func isiOSAppOnMac() -> Bool {
         var isiOSAppOnMac = false
         if #available(iOS 14.0, macOS 11.0, watchOS 7.0, tvOS 14.0, *) {
